@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.luis.coca</groupId>
+    <artifactId>coca</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <name>Coca Maven Parent</name>
+    <description>Parent for Coca artifacts</description>
+
+    <modules>
+        <module>coca-dependencies</module>
+        <module>coca-bom</module>
+
+        <module>coca-base</module>
+        <module>coca-log</module>
+        <module>coca-jackson</module>
+        <module>coca-dto</module>
+
+        <module>coca-exception</module>
+        <module>coca-util</module>
+    </modules>
+
+    <properties>
+        <maven.test.skip>true</maven.test.skip>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+
+        <!--same as coca version-->
+        <coca.version>1.0.0</coca.version>
+    </properties>
+
+    <developers>
+        <developer>
+            <email>luis97@163.com</email>
+            <name>luis</name>
+        </developer>
+    </developers>
+
+    <distributionManagement>
+
+        <repository>
+            <id>rdc-releases</id>
+            <name>default</name>
+            <url>https://packages.aliyun.com/maven/repository/2062865-release-ZoPIO7/</url>
+        </repository>
+
+        <snapshotRepository>
+            <id>rdc-snapshots</id>
+            <name>default</name>
+            <url>http://192.168.51.133:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+
+    </distributionManagement>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>cn.luis.coca</groupId>
+                <artifactId>coca-bom</artifactId>
+                <version>${coca.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+            </plugin>
+        </plugins>
+        <pluginManagement>
+            <plugins>
+                <!-- Maven Source Plugin 创建当前项目源文件的 JAR 归档 生成-sources.jar-->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>3.2.1</version>
+                    <executions>
+                        <execution>
+                            <id>attach-sources</id>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <!-- 在打Jar包时会引入依赖包可以打成直接运行的Jar包 -->
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>2.3.12.RELEASE</version>
+                    <executions>
+                        <execution>
+                            <id>repackage</id>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>
