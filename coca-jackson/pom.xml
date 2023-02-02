@@ -14,16 +14,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>cn.luis.coca</groupId>
-            <artifactId>coca-log</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
         </dependency>

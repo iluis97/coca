@@ -11,7 +11,6 @@ import com.fasterxml.jackson.databind.deser.std.StringDeserializer;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import com.fasterxml.jackson.datatype.jdk8.PackageVersion;
-import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
 import java.time.*;
@@ -41,7 +40,8 @@ public class SimpleModuleConfig {
             @Override
             public String deserialize(JsonParser p, DeserializationContext ctxt) throws IOException {
                 String result = StringDeserializer.instance.deserialize(p, ctxt);
-                return StringUtils.trimToNull(result);
+                String ts = result.trim();
+                return (ts == null || ts.isEmpty()) ? null : ts;
             }
         });
 
