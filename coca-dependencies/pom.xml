@@ -7,13 +7,13 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-parent</artifactId>
-        <version>2.3.12.RELEASE</version>
+        <version>2.6.13</version>
         <relativePath/>
     </parent>
 
     <groupId>cn.luis.coca</groupId>
     <artifactId>coca-dependencies</artifactId>
-    <version>2.3.0</version>
+    <version>2.6.0</version>
 
     <packaging>pom</packaging>
 
@@ -23,18 +23,18 @@
 
     <properties>
         <!-- 统一依赖管理 -->
-        <spring.cloud.version>Hoxton.SR12</spring.cloud.version>
-        <spring.cloud.alibaba.version>2.2.10-RC1</spring.cloud.alibaba.version>
+        <spring.cloud.version>2021.0.5</spring.cloud.version>
+        <spring.cloud.alibaba.version>2021.0.5.0</spring.cloud.alibaba.version>
 
-        <coca-child-module.version>2.3.0</coca-child-module.version>
+        <coca-child-module.version>2.6.0</coca-child-module.version>
 
         <!-- db -->
-        <mybatis.version>3.5.5</mybatis.version>
-        <mybatis-starter.version>2.1.3</mybatis-starter.version>
-        <mybatis-plus.version>3.4.2</mybatis-plus.version>
+        <mybatis.version>3.5.9</mybatis.version>
+        <mybatis-starter.version>2.2.2</mybatis-starter.version>
+        <mybatis-plus.version>3.5.3.2</mybatis-plus.version>
 
         <!-- cache -->
-        <redisson-starter.version>3.14.1</redisson-starter.version>
+        <redisson-starter.version>3.17.1</redisson-starter.version>
 
         <!--DTO转换-->
         <mapstruct.version>1.5.5.Final</mapstruct.version>
