@@ -19,7 +19,6 @@
         <dependency>
             <groupId>cn.luis.coca</groupId>
             <artifactId>coca-base</artifactId>
-            <optional>true</optional>
         </dependency>
     </dependencies>
 
